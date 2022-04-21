@@ -1,23 +1,20 @@
-// INTERACTABLE SCRIPT
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class Interactable: MonoBehaviour {
-    // minigame is for custom types, for example connect wires to interact with doors
-    public enum InteractionType {
-        Click,
-        Hold,
-        Minigame
+public class Interactable : MonoBehaviour
+{
+    public UnityEvent onInteract;
+    public int ID;
+    void Start()
+    {
+        ID = Random.Range(0, 9999);
     }
 
-    float holdTime;
-
-    public InteractionType interactionType;
-
-    public abstract string GetDescription();
-    public abstract void Interact();
-
-    public void IncreaseHoldTime() => holdTime += Time.deltaTime;
-    public void ResetHoldTime() => holdTime = 0f;
-
-    public float GetHoldTime() => holdTime;
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
