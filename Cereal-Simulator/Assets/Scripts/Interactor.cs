@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Interactor : MonoBehaviour
 {
     public LayerMask interactableLayermask = 8;
-    public Interactable interactable;
+    Interactable interactable;
+    public Image interactImage;
+    public Sprite defaultIcon;
+    public Vector2 defaultIconSize;
+    public Sprite defaultInteractIcon;
+    public Vector2 defaultInteractIconSize;
 
     void Start()
     {
@@ -25,13 +30,36 @@ public class Interactor : MonoBehaviour
                 if (interactable == null || interactable.ID != hit.collider.GetComponent<Interactable>().ID)
                 {
                     interactable = hit.collider.GetComponent<Interactable>();
-                    Debug.Log("New Interactable");
                 }
-
+                if (interactable.interactIcon != null)
+                {
+                    interactImage.sprite = interactable.interactIcon;
+                    if (interactable.iconSize == Vector2.zero)
+                    {
+                        interactImage.rectTransform.sizeDelta = defaultInteractIconSize;
+                    }
+                    else
+                    {
+                        interactImage.rectTransform.sizeDelta = interactable.iconSize;
+                    }
+                }
+                else
+                {
+                    interactImage.sprite = defaultInteractIcon;
+                    interactImage.rectTransform.sizeDelta = defaultInteractIconSize;
+                }
                 if(Input.GetKeyDown(KeyCode.F))
                 {
                     interactable.onInteract.Invoke();
                 }
+            }
+        }
+        else
+        {
+            if (interactImage.sprite != defaultIcon)
+            {
+                interactImage.sprite = defaultIcon;
+                interactImage.rectTransform.sizeDelta = defaultIconSize;
             }
         }
     }

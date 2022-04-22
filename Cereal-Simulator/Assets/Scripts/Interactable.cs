@@ -6,10 +6,12 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public UnityEvent onInteract;
+    public Sprite interactIcon;
+    public Vector2 iconSize;
     public int ID;
     void Start()
     {
-        ID = Random.Range(0, 9999);
+        ID = Random.Range(0, 999999);
     }
 
     // Update is called once per frame
