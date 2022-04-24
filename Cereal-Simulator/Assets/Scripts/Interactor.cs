@@ -18,7 +18,6 @@ public class Interactor : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         RaycastHit hit;
