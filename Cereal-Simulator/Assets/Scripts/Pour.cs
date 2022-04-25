@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Pour : MonoBehaviour
 {
+    [SerializeField] private int runTime = 5;
+    private float timer = -5;
     public GameObject cap;
     public GameObject milk;
     public Animator anim;
     public Camera camera;
+    
     void Start()
     {
         
@@ -17,6 +20,7 @@ public class Pour : MonoBehaviour
 
     void Update()
     {
+        timer -= Time.deltaTime;
         RaycastHit hit;
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         
@@ -26,6 +30,7 @@ public class Pour : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == false)
                 {
+                    timer = runTime;
                     milk.gameObject.SetActive(true);
                     anim.Play("Pour");
                 }
@@ -35,6 +40,12 @@ public class Pour : MonoBehaviour
                 }
             }
         }
-        
+        if (timer <= 0 && timer > -5)
+        {
+            anim.Play("Stop Pour");
+            this.enabled = false;
+        }
     }
+
+    
 }

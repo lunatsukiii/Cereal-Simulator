@@ -23,8 +23,9 @@ public class Spawner : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.gameObject.name == "box") 
+            if (hit.collider.gameObject.name == "box" && anim.GetBool("Open")) 
             {
+                anim.Play("BoxPour");
                 timer = runTime;
                 InvokeRepeating(nameof(Spawn), 0.2f, 0.2f);
             }
@@ -45,6 +46,7 @@ public class Spawner : MonoBehaviour
         if (timer <= 0 && timer > -5)
         {
             CancelInvoke();
+            anim.Play("Stop BoxPour"); 
             this.enabled = false;
         }
 
