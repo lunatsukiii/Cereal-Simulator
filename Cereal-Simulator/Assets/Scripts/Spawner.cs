@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject Object;
     [SerializeField] private int _spawnAmount = 100;
     [SerializeField] private int runTime = 5;
+    private PickUp pickedUp;
     private float timer = -5;
     public Camera camera;
     public Animator anim;
@@ -45,8 +46,8 @@ public class Spawner : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0 && timer > -5)
         {
+            anim.Play("Stop BoxPour");
             CancelInvoke();
-            anim.Play("Stop BoxPour"); 
             this.enabled = false;
         }
 
@@ -54,5 +55,6 @@ public class Spawner : MonoBehaviour
         {
             StartSpawn();
         }
+
     }
 }

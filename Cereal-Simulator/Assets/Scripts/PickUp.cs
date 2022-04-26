@@ -8,6 +8,7 @@ public class PickUp : MonoBehaviour
     public float moveForce = 250;
     public Transform holdParent;
     private GameObject heldObj;
+    private bool pickedUp = false;
 
     void Update()
     {   
@@ -19,6 +20,7 @@ public class PickUp : MonoBehaviour
                 if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward),out hit, pickUpRange))
                 {
                     PickupObject (hit.transform.gameObject);
+                    
                 }
             }
             else
