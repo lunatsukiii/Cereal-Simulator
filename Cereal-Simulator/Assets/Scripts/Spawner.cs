@@ -51,10 +51,15 @@ public class Spawner : MonoBehaviour
             this.enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if ((GameObject.Find("box").transform.position - GameObject.Find("ObjectHolder").transform.position).magnitude < 0.1f)
         {
-            StartSpawn();
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                StartSpawn();
+            }
         }
+
+        
 
     }
 }

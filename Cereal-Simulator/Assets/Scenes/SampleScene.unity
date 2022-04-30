@@ -849,7 +849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374922774}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 3.33, z: 2.2}
+  m_LocalPosition: {x: 0, y: 4.2, z: 2.54}
   m_LocalScale: {x: 2.5524695, y: 2.55247, z: 2.5524695}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1351,7 +1351,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ee7531b94194a8a40a550beaa4c7110b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.604
+      value: 4.638
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee7531b94194a8a40a550beaa4c7110b,
         type: 3}
@@ -1432,7 +1432,6 @@ GameObject:
   - component: {fileID: 2131053694}
   - component: {fileID: 2131053693}
   - component: {fileID: 2131053695}
-  - component: {fileID: 2131053696}
   - component: {fileID: 2131053697}
   - component: {fileID: 2131053698}
   m_Layer: 0
@@ -1524,19 +1523,7 @@ MonoBehaviour:
   pickUpRange: 5
   moveForce: 150
   holdParent: {fileID: 1314335870}
---- !u!114 &2131053696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131053691}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9bbe8683cdf5224fa5bd2aacb0f9039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crosshair: {fileID: 0}
+  check: {fileID: 0}
 --- !u!114 &2131053697
 MonoBehaviour:
   m_ObjectHideFlags: 0

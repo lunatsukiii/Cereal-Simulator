@@ -8,8 +8,7 @@ public class PickUp : MonoBehaviour
     public float moveForce = 250;
     public Transform holdParent;
     private GameObject heldObj;
-    private bool pickedUp = false;
-
+    public GameObject check;
     void Update()
     {   
         if (Input.GetKeyDown(KeyCode.E))
@@ -39,6 +38,7 @@ public class PickUp : MonoBehaviour
     {
         if(Vector3.Distance(heldObj.transform.position, holdParent.position) > 0.1f)
         {
+
             Vector3 moveDirection = (holdParent.position - heldObj.transform.position);
             heldObj.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
         }
@@ -66,4 +66,6 @@ public class PickUp : MonoBehaviour
         heldObj.transform.parent = null;
         heldObj = null;
     }
+
+    
 }

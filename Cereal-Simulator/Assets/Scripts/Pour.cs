@@ -28,16 +28,20 @@ public class Pour : MonoBehaviour
         {
             if (hit.collider.gameObject.name == "milk carton")
             {
-                if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == false)
+                if ((GameObject.Find("milk carton").transform.position - GameObject.Find("ObjectHolder").transform.position).magnitude < 0.1f)
                 {
-                    timer = runTime;
-                    milk.gameObject.SetActive(true);
-                    anim.Play("Pour");
+                    if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == false)
+                    {
+                        timer = runTime;
+                        milk.gameObject.SetActive(true);
+                        anim.Play("Pour");
+                    }
+                    else if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == true)
+                    {
+                        print("no");
+                    }
                 }
-                else if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == true)
-                {
-                    print("no");
-                }
+                
             }
         }
         if (timer <= 0 && timer > -5)
