@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public float pickUpRange = 5;
+    public float pickUpRange = 15;
     public float moveForce = 250;
     public Transform holdParent;
     private GameObject heldObj;
