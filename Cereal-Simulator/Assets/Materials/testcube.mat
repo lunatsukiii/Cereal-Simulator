@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: testcube
-  m_Shader: {fileID: -6465566751694194690, guid: 940dcade791210045959a9dde8aa26d7,
+  m_Shader: {fileID: -6465566751694194690, guid: 17946d5dc7fe1eb489403025ac3474b6,
     type: 3}
   m_ValidKeywords:
   - MAIN_LIGHT_CALCULATE_SHADOWS
@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DiffuseTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 75ed334c3e29b2f45866be9b7bce470b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -98,6 +98,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SHADOWS_SOFT: 1
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

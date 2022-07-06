@@ -10,7 +10,7 @@ public class Pour : MonoBehaviour
     public GameObject milk;
     public Animator anim;
     public Camera camera;
-    
+
     void Start()
     {
         
@@ -23,30 +23,45 @@ public class Pour : MonoBehaviour
         timer -= Time.deltaTime;
         RaycastHit hit;
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        
+
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider.gameObject.name == "milk carton")
             {
-                if ((GameObject.Find("milk carton").transform.position - GameObject.Find("ObjectHolder").transform.position).magnitude < 0.1f)
+                if ((GameObject.Find("milk carton").transform.position -
+                     GameObject.Find("ObjectHolder").transform.position).magnitude < 0.1f)
                 {
-                    if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == false)
+                    if (Vector3.Distance(GameObject.Find("milk carton").transform.position,
+                            GameObject.Find("Bowl").transform.position) < 3f)
                     {
-                        timer = runTime;
-                        milk.gameObject.SetActive(true);
-                        anim.Play("Pour");
-                    }
-                    else if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == true)
-                    {
-                        print("no");
+                        if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == false)
+                        {
+                            
+                            timer = runTime;
+                            milk.gameObject.SetActive(true);
+                            anim.Play("Pour");
+                            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                            {
+                                print("meow");
+                                GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
+                            }
+
+                            
+                        }
+                        else if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == true)
+                        {
+                            print("no");
+                        }
                     }
                 }
-                
+
             }
         }
+
         if (timer <= 0 && timer > -5)
         {
             anim.Play("Stop Pour");
+            GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
             this.enabled = false;
         }
     }

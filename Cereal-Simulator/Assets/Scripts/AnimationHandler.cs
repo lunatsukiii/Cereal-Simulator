@@ -10,4 +10,8 @@ public class AnimationHandler : MonoBehaviour
     {
         animator.SetBool(boolname, !animator.GetBool(boolname));
     }
+
+    
+
+
 }
