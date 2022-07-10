@@ -8,7 +8,9 @@ public class Pour : MonoBehaviour
     private float timer = -5;
     public GameObject cap;
     public GameObject milk;
+    public GameObject bowlMilk;
     public Animator anim;
+    public Animator animit;
     public Camera camera;
 
     void Start()
@@ -36,10 +38,11 @@ public class Pour : MonoBehaviour
                     {
                         if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == false)
                         {
-                            
                             timer = runTime;
                             milk.gameObject.SetActive(true);
                             anim.Play("Pour");
+                            bowlMilk.gameObject.SetActive(true);
+                            animit.Play("Fill");
                             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
                             {
                                 print("meow");

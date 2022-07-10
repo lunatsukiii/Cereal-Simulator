@@ -921,7 +921,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d1fbd9681112d3e43a635b4076c10db6, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -1457,6 +1457,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: milk in bowl
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 201b1809e07eb7b4bac27bc6eeab8e86,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201b1809e07eb7b4bac27bc6eeab8e86, type: 3}
 --- !u!1 &1431255900
@@ -1550,7 +1555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431255900}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -516.39, y: -262.6, z: -12.02}
+  m_LocalPosition: {x: -518.84, y: -262.6, z: -12.02}
   m_LocalScale: {x: 3, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2304,7 +2309,9 @@ MonoBehaviour:
   runTime: 5
   cap: {fileID: 8416272007007286164}
   milk: {fileID: 1978722409}
+  bowlMilk: {fileID: 908446758}
   anim: {fileID: 1269396086}
+  animit: {fileID: 908446759}
   camera: {fileID: 2131053694}
 --- !u!1 &919132148793893224
 GameObject:
@@ -2403,6 +2410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119500726092806325, guid: e3687bafb349f0f42a6dd9cc6a09d819,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2119500726092806327, guid: e3687bafb349f0f42a6dd9cc6a09d819,
         type: 3}
