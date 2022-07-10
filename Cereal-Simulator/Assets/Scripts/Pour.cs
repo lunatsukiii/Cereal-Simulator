@@ -34,7 +34,7 @@ public class Pour : MonoBehaviour
                      GameObject.Find("ObjectHolder").transform.position).magnitude < 0.1f)
                 {
                     if (Vector3.Distance(GameObject.Find("milk carton").transform.position,
-                            GameObject.Find("Bowl").transform.position) < 3f)
+                            GameObject.Find("Bowl").transform.position) < 3.5f)
                     {
                         if (Input.GetKeyDown(KeyCode.R) && cap.gameObject.activeSelf == false)
                         {
