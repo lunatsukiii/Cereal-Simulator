@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject Object;
-    [SerializeField] private int _spawnAmount = 100;
+    [SerializeField] private int _spawnAmount = 350;
     [SerializeField] private int runTime = 5;
     private PickUp pickedUp;
     private float timer = -5;
@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
             {
                 anim.Play("BoxPour");
                 timer = runTime;
-                InvokeRepeating(nameof(Spawn), 0.2f, 0.2f);
+                InvokeRepeating(nameof(Spawn), 0.05f, 0.05f);
             }
         }
     }
