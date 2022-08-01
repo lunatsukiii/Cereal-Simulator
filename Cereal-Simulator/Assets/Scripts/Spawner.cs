@@ -13,7 +13,18 @@ public class Spawner : MonoBehaviour
     private float timer = -5;
     public Camera camera;
     public Animator anim;
-    
+    private List<GameObject> LoopsQueue = new List<GameObject>();
+
+    private void Start()
+    {
+        for (var i = 0; i < _spawnAmount; i++)
+        {
+            var shape = Instantiate(Object);
+            shape.SetActive(false);
+            LoopsQueue.Add(shape);
+        }
+    }
+
     private void StartSpawn()
     {
         if (!anim.GetBool("Open"))
@@ -28,16 +39,17 @@ public class Spawner : MonoBehaviour
             {
                 anim.Play("BoxPour");
                 timer = runTime;
-                InvokeRepeating(nameof(Spawn), 0.05f, 0.05f);
+                InvokeRepeating(nameof(Spawn), 0.05f, 0.005f);
             }
         }
     }
-    private void Spawn() 
+    private void Spawn()
     {
-        for (var i = 0; i < _spawnAmount; i++)
+        foreach (var loop in LoopsQueue)
         {
-            var shape = Instantiate(Object);
-            shape.transform.position = gameObject.transform.position;
+            loop.SetActive(true);
+            loop.transform.position = transform.position;
+            LoopsQueue.Remove(loop);
         }
     }
 

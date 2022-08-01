@@ -7,25 +7,20 @@ using UnityEngine;
 public class CountCereal : MonoBehaviour
 {
     private Collider[] hitColliders;
-    public float bowlRadius;
+    private int count = 0;
 
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider other)
     {
-        CerealinBowl(col.contacts[0].point);
-    }
-
-    void CerealinBowl(Vector3 bowlPosition)
-    {
-        hitColliders = Physics.OverlapSphere(bowlPosition, bowlRadius);
-        foreach (Collider hitCol in hitColliders)
+        if (other.gameObject.CompareTag("Cereal"))
         {
-            Debug.Log(hitCol.gameObject.name);
-            if (hitCol.gameObject.tag == "Cereal")
+            count++;
+            Debug.Log("poop");
+            if (count == 100)
             {
-                
+                Debug.Log("You have collected all the cereals");
             }
         }
     }
-    
+
 }
