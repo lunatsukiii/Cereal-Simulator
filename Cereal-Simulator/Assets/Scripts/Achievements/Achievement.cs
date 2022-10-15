@@ -6,7 +6,8 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Achievement", menuName = "ScriptableObjects/Achievement", order = 1)]
-[Serializable] public class Achievement : ScriptableObject
+[Serializable]
+public class Achievement : ScriptableObject
 {
     public bool isSolved;
     public string description;
@@ -14,7 +15,7 @@ using UnityEngine;
 }
 
 [Serializable]
-public class AchievementContainer
+public struct AchievementContainer
 {
     public Achievement[] achievements;
 }

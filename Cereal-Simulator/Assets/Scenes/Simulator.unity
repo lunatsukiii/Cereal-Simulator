@@ -3408,7 +3408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _achievements:
-  - {fileID: 11400000, guid: a2aa0b22696fc2a4fafbfbd10b11cffa, type: 2}
+    achievements:
+    - {fileID: 11400000, guid: a2aa0b22696fc2a4fafbfbd10b11cffa, type: 2}
 --- !u!4 &2091282789
 Transform:
   m_ObjectHideFlags: 0

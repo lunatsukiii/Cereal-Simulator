@@ -2,15 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
 {
     [SerializeField] private AchievementContainer _achievements;
+    public static AchievementManager instance;
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        TryLoad();
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            TryLoad();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 
     private void TryLoad()
@@ -23,8 +34,9 @@ public class AchievementManager : MonoBehaviour
             {
                 foreach (var achi in _achievements.achievements)
                 {
-                    if (ach.ID == achi.ID)
+                    if (achi.ID == ach.ID)
                     {
+                        Debug.Log("loaded Achievement: " + achi.ID);
                         achi.isSolved = ach.isSolved;
                         break;
                     }
@@ -40,8 +52,8 @@ public class AchievementManager : MonoBehaviour
             if (ach.ID == ID)
             {
                 ach.isSolved = true;
-                string json = JsonUtility.ToJson(_achievements);
-                // TODO: Save to persistent data path
+                string json = JsonUtility.ToJson(ach);
+                File.WriteAllText( Application.persistentDataPath+"/Achievement.json", json);
                 break;
             }
         }

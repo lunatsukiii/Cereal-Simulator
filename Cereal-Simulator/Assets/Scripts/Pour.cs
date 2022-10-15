@@ -12,12 +12,14 @@ public class Pour : MonoBehaviour
     public Animator anim;
     public Animator animit;
     public Camera camera;
+    private bool isPoured;
 
     void Start()
     {
         
         anim = GetComponent<Animator>();
-        
+        isPoured = false;
+
     }
 
     void Update()
@@ -47,6 +49,8 @@ public class Pour : MonoBehaviour
                             {
                                 print("meow");
                                 GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
+                                isPoured = true;
+                                AchievementManager.instance.NewAchievementSolved("test");
                             }
 
                             
